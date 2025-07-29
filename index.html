@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Seninle Konuşmam Lazım...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Marck Script', cursive;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #c71585;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 24px;
+      color: #333;
+      margin: 20px auto;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      margin-top: 40px;
+    }
+
+    button {
+      font-size: 22px;
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    .yes:hover {
+      background-color: #e055a1;
+    }
+
+    .no {
+      background-color: #d3d3d3;
+      color: #333;
+    }
+
+    .no:hover {
+      background-color: #999;
+    }
+
+    .heart {
+      color: red;
+      font-size: 30px;
+      position: absolute;
+      animation: float 5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    #hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>R A B İ A 💌</h1>
+  <p>
+    Bunu sana söylemek için doğru zamanı bekledim. Çünkü seninle her konuştuğumda, içimde bir şeyler değişti.  
+    “Sana ezelden geldim ben...”  
+    Seni tanıdıkça, “taşıyor umudum aşktan...”  
+    Kelimeler daha anlamlı, günler daha güzel olmaya başladı.  
+    “Bahçemin deli ey yaman gülü...”  
+    Artık seninle sadece konuşmak değil, daha fazlasını yaşamak istiyorum.  
+    (Sen, kendim olmam için bende eksik olan tek şeysin.)  
+    Eğer sen de istersen…  
+    <strong>Ömrüm olmaya ne dersin?</strong>
+  </p>
+
+  <div class="buttons">
+    <button class="yes" onclick="startHearts()">Evet 💘</button>
+    <button class="no" onclick="alert('Böyle bir seçenek yok 😊')">Hayır ❌</button>
+  </div>
+
+  <div id="hearts"></div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      document.getElementById("hearts").appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    function startHearts() {
+      setInterval(createHeart, 200);
+      document.querySelector("h1").innerText = "Artık Sevgiliyiz! 💕";
+      document.querySelector("p").innerText = "Bu anı birlikte yaşadığımız için çok mutluyum! Seni çok seviyorum ❤️";
+      document.querySelector(".buttons").style.display = "none";
+    }
+  </script>
+</body>
+</html>
